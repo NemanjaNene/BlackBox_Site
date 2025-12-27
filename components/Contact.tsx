@@ -38,7 +38,7 @@ export default function Contact() {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'contact@blackboxtesting.rs', // Tvoj email gde želiš da primaš poruke
+          to_email: 'Nemanjanikitovic1@gmail.com', // Tvoj email gde želiš da primaš poruke
         },
         publicKey
       )
@@ -97,7 +97,7 @@ export default function Contact() {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-white mb-1">Email</h4>
-                  <p className="text-gray-300">contact@blackboxtesting.rs</p>
+                  <p className="text-gray-300">Nemanjanikitovic1@gmail.com</p>
                   <p className="text-gray-400 text-sm mt-1">Odgovaramo u roku od 24h</p>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function Contact() {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-white mb-1">Telefon</h4>
-                  <p className="text-gray-300">+381 XX XXX XXXX</p>
+                  <p className="text-gray-300">+381 616465642</p>
                   <p className="text-gray-400 text-sm mt-1">Pon - Pet, 9:00 - 17:00</p>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function Contact() {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-white mb-1">Lokacija</h4>
-                  <p className="text-gray-300">Beograd, Srbija</p>
+                  <p className="text-gray-300">Valjevo, Srbija</p>
                   <p className="text-gray-400 text-sm mt-1">Remote friendly</p>
                 </div>
               </div>
