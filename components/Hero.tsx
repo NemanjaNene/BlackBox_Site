@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MatrixRain from './MatrixRain'
 
 const processSteps = [
@@ -59,6 +59,14 @@ export default function Hero() {
   const prevStep = () => {
     setCurrentStep((prev) => (prev - 1 + processSteps.length) % processSteps.length)
   }
+
+  // Auto-play carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStep((prev) => (prev + 1) % processSteps.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -147,7 +155,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="max-w-4xl mx-auto mb-12 px-4"
+            className="max-w-5xl mx-auto mb-12 px-4"
           >
             <div className="relative">
               {/* Carousel Container */}
@@ -155,69 +163,108 @@ export default function Hero() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentStep}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.3 }}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                     className="w-full"
                   >
-                    <div className={`relative bg-white rounded-3xl p-8 md:p-12 border-2 border-gray-200 shadow-2xl overflow-hidden`}>
+                    <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-[2.5rem] p-10 md:p-16 border border-gray-200/50 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
                       
-                      {/* Gradient top border */}
-                      <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${processSteps[currentStep].gradient} rounded-t-3xl`} />
+                      {/* Animated gradient border glow */}
+                      <div className={`absolute inset-0 bg-gradient-to-r ${processSteps[currentStep].gradient} opacity-0 group-hover:opacity-100 blur-xl -z-10 transition-opacity duration-500`} />
                       
-                      {/* Number badge */}
-                      <div className={`absolute top-6 right-6 w-14 h-14 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg`}>
-                        {processSteps[currentStep].number}
+                      {/* Top gradient accent - thicker and more prominent */}
+                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${processSteps[currentStep].gradient} rounded-t-[2.5rem]`}>
+                        <div className={`h-full w-full bg-gradient-to-r ${processSteps[currentStep].gradient} blur-sm opacity-50`} />
                       </div>
                       
+                      {/* Number badge - larger and more modern */}
+                      <motion.div 
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                        className={`absolute top-8 right-8 w-20 h-20 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-3xl flex items-center justify-center text-white font-black text-2xl shadow-2xl backdrop-blur-sm border-4 border-white/20`}
+                      >
+                        {processSteps[currentStep].number}
+                      </motion.div>
+                      
                       {/* Content */}
-                      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                        <div className={`flex-shrink-0 w-24 h-24 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-3xl flex items-center justify-center text-5xl shadow-xl`}>
+                      <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-10">
+                        <motion.div 
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                          className={`flex-shrink-0 w-32 h-32 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-[2rem] flex items-center justify-center text-6xl shadow-2xl border-4 border-white/30 backdrop-blur-sm`}
+                        >
                           {processSteps[currentStep].icon}
-                        </div>
+                        </motion.div>
                         
                         <div className="flex-1 text-center md:text-left">
-                          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                          <motion.h3 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight"
+                          >
                             {processSteps[currentStep].title}
-                          </h3>
-                          <p className="text-gray-600 text-lg md:text-xl">
+                          </motion.h3>
+                          <motion.p 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="text-gray-600 text-xl md:text-2xl font-medium leading-relaxed"
+                          >
                             {processSteps[currentStep].desc}
-                          </p>
+                          </motion.p>
                         </div>
                       </div>
 
-                      {/* Subtle gradient background */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${processSteps[currentStep].gradient} opacity-[0.03] rounded-3xl pointer-events-none`} />
+                      {/* Subtle animated gradient background */}
+                      <motion.div 
+                        animate={{ 
+                          background: [
+                            `linear-gradient(135deg, transparent 0%, transparent 100%)`,
+                            `linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(147, 51, 234, 0.03) 100%)`,
+                            `linear-gradient(135deg, transparent 0%, transparent 100%)`
+                          ]
+                        }}
+                        transition={{ duration: 5, repeat: Infinity }}
+                        className={`absolute inset-0 rounded-[2.5rem] pointer-events-none`} 
+                      />
                     </div>
                   </motion.div>
                 </AnimatePresence>
               </div>
 
-              {/* Navigation Arrows */}
-              <button
+              {/* Navigation Arrows - More Modern */}
+              <motion.button
                 onClick={prevStep}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 w-12 h-12 bg-white rounded-full shadow-xl border-2 border-gray-200 hover:border-blue-500 hover:shadow-2xl transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-xl"
+                whileHover={{ scale: 1.1, x: -5 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-20 w-16 h-16 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl border border-gray-200/50 hover:border-blue-400 hover:shadow-blue-500/20 transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-2xl backdrop-blur-sm"
               >
                 ←
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={nextStep}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 w-12 h-12 bg-white rounded-full shadow-xl border-2 border-gray-200 hover:border-blue-500 hover:shadow-2xl transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-xl"
+                whileHover={{ scale: 1.1, x: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-20 w-16 h-16 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl border border-gray-200/50 hover:border-blue-400 hover:shadow-blue-500/20 transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-2xl backdrop-blur-sm"
               >
                 →
-              </button>
+              </motion.button>
 
-              {/* Dots Indicator */}
-              <div className="flex justify-center gap-2 mt-6">
-                {processSteps.map((_, index) => (
-                  <button
+              {/* Dots Indicator - More Modern */}
+              <div className="flex justify-center gap-3 mt-8">
+                {processSteps.map((step, index) => (
+                  <motion.button
                     key={index}
                     onClick={() => setCurrentStep(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`rounded-full transition-all duration-500 ${
                       index === currentStep 
-                        ? 'w-8 bg-gradient-to-r from-blue-600 to-cyan-500' 
-                        : 'bg-gray-300 hover:bg-gray-400'
+                        ? `w-12 h-3 bg-gradient-to-r ${step.gradient} shadow-lg` 
+                        : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
                     }`}
                   />
                 ))}
