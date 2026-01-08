@@ -169,19 +169,10 @@ export default function Hero() {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     className="w-full"
                   >
-                    <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-3xl px-10 py-8 md:px-16 md:py-10 border border-gray-200/50 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
+                    <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-3xl px-10 py-8 md:px-16 md:py-10 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
                       
                       {/* Animated gradient border glow */}
                       <div className={`absolute inset-0 bg-gradient-to-r ${processSteps[currentStep].gradient} opacity-0 group-hover:opacity-100 blur-xl -z-10 transition-opacity duration-500`} />
-                      
-                      {/* Number badge - smaller and cleaner */}
-                      <motion.div 
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                        className={`absolute top-6 right-6 w-14 h-14 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-xl flex items-center justify-center text-white font-black text-lg shadow-xl backdrop-blur-sm border-2 border-white/20`}
-                      >
-                        {processSteps[currentStep].number}
-                      </motion.div>
                       
                       {/* Content */}
                       <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-10">
