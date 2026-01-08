@@ -12,37 +12,54 @@ const processSteps = [
     number: '01',
     bgPattern: (
       <div className="absolute inset-0 overflow-hidden opacity-[0.15] pointer-events-none">
-        <svg className="absolute w-full h-full" viewBox="0 0 1000 500">
-          {/* Top left wireframes */}
-          <rect x="20" y="20" width="180" height="120" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
-          <rect x="220" y="20" width="140" height="120" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
-          <line x1="30" y1="30" x2="190" y2="30" stroke="currentColor" strokeWidth="2" className="text-blue-500"/>
-          <line x1="30" y1="50" x2="150" y2="50" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
+        <svg className="absolute w-full h-full" preserveAspectRatio="none" viewBox="0 0 1400 400">
+          {/* Far LEFT wireframes */}
+          <rect x="10" y="10" width="120" height="80" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
+          <rect x="10" y="110" width="100" height="70" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-500"/>
+          <circle cx="70" cy="240" r="40" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500"/>
+          <rect x="10" y="300" width="110" height="90" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
+          <line x1="20" y1="20" x2="120" y2="20" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
+          <line x1="20" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="2" className="text-cyan-400"/>
           
-          {/* Top right circles */}
-          <circle cx="780" cy="80" r="60" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-500"/>
-          <circle cx="900" cy="80" r="50" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
+          {/* LEFT-CENTER */}
+          <rect x="180" y="30" width="140" height="100" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
+          <rect x="190" y="45" width="60" height="35" fill="currentColor" fillOpacity="0.08" className="text-blue-600"/>
+          <rect x="180" y="180" width="130" height="110" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500"/>
+          <circle cx="245" cy="330" r="35" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-500"/>
           
-          {/* Middle wireframes */}
-          <rect x="50" y="180" width="200" height="150" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500"/>
-          <rect x="70" y="200" width="80" height="50" fill="currentColor" fillOpacity="0.1" className="text-cyan-600"/>
-          <rect x="70" y="270" width="160" height="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
+          {/* CENTER-TOP */}
+          <rect x="400" y="10" width="200" height="70" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
+          <line x1="410" y1="25" x2="590" y2="25" stroke="currentColor" strokeWidth="2" className="text-blue-500"/>
+          <line x1="410" y1="45" x2="560" y2="45" stroke="currentColor" strokeWidth="2" className="text-cyan-500"/>
           
-          {/* Right side layout */}
-          <rect x="700" y="200" width="280" height="180" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
-          <rect x="720" y="220" width="100" height="60" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"/>
-          <rect x="840" y="220" width="120" height="60" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-500"/>
+          {/* CENTER */}
+          <rect x="650" y="30" width="100" height="80" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
+          <rect x="660" y="45" width="40" height="25" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"/>
           
-          {/* Bottom grid */}
-          <line x1="50" y1="380" x2="950" y2="380" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
-          <rect x="50" y="400" width="100" height="70" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
-          <rect x="170" y="400" width="100" height="70" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
-          <rect x="290" y="400" width="100" height="70" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500"/>
-          <rect x="410" y="400" width="100" height="70" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-500"/>
+          {/* CENTER-BOTTOM */}
+          <rect x="400" y="300" width="180" height="90" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500"/>
+          <rect x="620" y="300" width="160" height="90" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
+          <line x1="410" y1="330" x2="570" y2="330" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
           
-          {/* Connection lines */}
-          <line x1="400" y1="100" x2="500" y2="250" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4,4" className="text-blue-400"/>
-          <line x1="600" y1="150" x2="700" y2="280" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4,4" className="text-cyan-400"/>
+          {/* RIGHT-CENTER */}
+          <rect x="850" y="40" width="150" height="100" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
+          <rect x="860" y="55" width="65" height="35" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-500"/>
+          <rect x="940" y="55" width="50" height="35" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
+          <circle cx="925" cy="210" r="50" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
+          <rect x="850" y="280" width="140" height="100" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500"/>
+          
+          {/* Far RIGHT */}
+          <rect x="1050" y="20" width="110" height="75" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
+          <circle cx="1300" cy="80" r="45" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
+          <rect x="1200" y="140" width="100" height="80" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-500"/>
+          <rect x="1050" y="250" width="130" height="90" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-600"/>
+          <rect x="1210" y="270" width="120" height="110" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-600"/>
+          <circle cx="1330" cy="330" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"/>
+          
+          {/* Connection lines across */}
+          <line x1="150" y1="100" x2="400" y2="200" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4,4" className="text-blue-400" opacity="0.5"/>
+          <line x1="600" y1="80" x2="850" y2="150" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4,4" className="text-cyan-400" opacity="0.5"/>
+          <line x1="780" y1="350" x2="1050" y2="300" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4,4" className="text-blue-400" opacity="0.5"/>
         </svg>
       </div>
     )
@@ -54,65 +71,97 @@ const processSteps = [
     gradient: 'from-purple-500 to-pink-500',
     number: '02',
     bgPattern: (
-      <div className="absolute inset-0 overflow-hidden opacity-[0.14] pointer-events-none font-mono text-xs leading-relaxed p-4 text-purple-600">
-        <div className="grid grid-cols-2 gap-8 w-full h-full">
+      <div className="absolute inset-0 overflow-hidden opacity-[0.14] pointer-events-none font-mono text-[10px] leading-relaxed text-purple-600">
+        <div className="grid grid-cols-3 gap-4 w-full h-full p-2">
+          {/* LEFT column */}
           <div className="whitespace-pre">
 {`function createApp() {
-  const app = new Application()
+  const app = new App()
   app.use(middleware)
   app.use(router)
   
-  return app.listen(3000)
+  return app.listen()
 }
 
-const API_URL = '/api/v1'
+const API = '/api/v1'
 const config = {
   timeout: 5000,
-  retry: 3
+  retry: 3,
+  headers: {
+    'Content-Type': 
+    'application/json'
+  }
 }
 
 class Component {
   constructor(props) {
     this.state = {
-      loading: false
+      loading: false,
+      data: null
     }
-  }
-  
-  async fetchData() {
-    const res = await fetch(API)
-    return res.json()
-  }
-  
-  render() {
-    return <div></div>
   }
 }`}
           </div>
+          
+          {/* MIDDLE column */}
           <div className="whitespace-pre text-pink-600">
 {`import React from 'react'
-import { motion } from 'framer'
+import { motion } from 'fm'
 
-export default function Hero() {
-  const [count, setCount] = useState(0)
+function Hero() {
+  const [count, set] = 
+    useState(0)
   
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCount(c => c + 1)
-    }, 1000)
-    return () => clearInterval(timer)
+    const t = setInterval(
+      () => {
+        set(c => c + 1)
+      }, 1000
+    )
+    return () => 
+      clearInterval(t)
   }, [])
   
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="hero"
+      initial={{ 
+        opacity: 0 
+      }}
     >
-      <h1>Welcome</h1>
-      <p>Count: {count}</p>
+      <h1>Hi</h1>
     </motion.div>
   )
 }`}
+          </div>
+          
+          {/* RIGHT column */}
+          <div className="whitespace-pre text-purple-700">
+{`async function fetch() {
+  const res = await
+    axios.get(API_URL)
+  
+  return res.data
+}
+
+const styles = {
+  container: {
+    display: 'flex',
+    padding: '20px'
+  }
+}
+
+export default {
+  fetchData,
+  processData,
+  updateState
+}
+
+const routes = [
+  { path: '/' },
+  { path: '/about' },
+  { path: '/contact' }
+]
+`}
           </div>
         </div>
       </div>
@@ -126,26 +175,38 @@ export default function Hero() {
     number: '03',
     bgPattern: (
       <div className="absolute inset-0 overflow-hidden opacity-[0.13] pointer-events-none">
-        {/* Top row */}
-        <div className="absolute top-5 left-10 text-6xl text-orange-500">🖼️</div>
-        <div className="absolute top-8 left-1/4 text-5xl text-red-500">📷</div>
-        <div className="absolute top-5 right-1/4 text-6xl text-orange-400">🎬</div>
-        <div className="absolute top-10 right-10 text-5xl text-red-400">📹</div>
+        {/* Far LEFT column */}
+        <div className="absolute top-2 left-2 text-5xl text-orange-500">🖼️</div>
+        <div className="absolute top-[20%] left-4 text-6xl text-red-500">📷</div>
+        <div className="absolute top-[40%] left-3 text-5xl text-orange-600">🎥</div>
+        <div className="absolute top-[60%] left-5 text-6xl text-red-400">📸</div>
+        <div className="absolute bottom-4 left-4 text-5xl text-orange-500">🎭</div>
         
-        {/* Middle row */}
-        <div className="absolute top-1/3 left-5 text-7xl text-orange-600">🎥</div>
-        <div className="absolute top-1/3 left-1/3 text-6xl text-red-500">🖌️</div>
-        <div className="absolute top-1/3 right-1/3 text-5xl text-orange-400">🎞️</div>
-        <div className="absolute top-1/3 right-5 text-6xl text-red-600">🎨</div>
+        {/* LEFT-CENTER column */}
+        <div className="absolute top-8 left-[20%] text-6xl text-red-600">🎬</div>
+        <div className="absolute top-[35%] left-[18%] text-7xl text-orange-400">🖌️</div>
+        <div className="absolute bottom-12 left-[22%] text-6xl text-red-500">🎨</div>
         
-        {/* Bottom row */}
-        <div className="absolute bottom-5 left-12 text-6xl text-orange-500">📸</div>
-        <div className="absolute bottom-8 left-1/3 text-7xl text-red-400">🎭</div>
-        <div className="absolute bottom-5 right-1/4 text-5xl text-orange-600">🖼️</div>
-        <div className="absolute bottom-10 right-10 text-6xl text-red-500">✨</div>
+        {/* CENTER-LEFT */}
+        <div className="absolute top-4 left-[38%] text-5xl text-orange-600">📹</div>
+        <div className="absolute top-[50%] left-[35%] text-8xl text-orange-300 opacity-40">🎬</div>
+        <div className="absolute bottom-8 left-[40%] text-6xl text-red-400">🎞️</div>
         
-        {/* Extra scattered */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl text-orange-300 opacity-50">🎬</div>
+        {/* CENTER-RIGHT */}
+        <div className="absolute top-10 right-[38%] text-6xl text-red-500">✨</div>
+        <div className="absolute bottom-6 right-[35%] text-5xl text-orange-500">🖼️</div>
+        
+        {/* RIGHT-CENTER column */}
+        <div className="absolute top-6 right-[20%] text-6xl text-orange-600">🎨</div>
+        <div className="absolute top-[38%] right-[18%] text-7xl text-red-600">📷</div>
+        <div className="absolute bottom-10 right-[22%] text-6xl text-orange-400">🎥</div>
+        
+        {/* Far RIGHT column */}
+        <div className="absolute top-4 right-4 text-5xl text-red-500">🎬</div>
+        <div className="absolute top-[22%] right-2 text-6xl text-orange-500">📹</div>
+        <div className="absolute top-[45%] right-5 text-5xl text-red-600">🖌️</div>
+        <div className="absolute top-[68%] right-3 text-6xl text-orange-600">🎞️</div>
+        <div className="absolute bottom-2 right-4 text-5xl text-red-400">✨</div>
       </div>
     )
   },
@@ -157,40 +218,53 @@ export default function Hero() {
     number: '04',
     bgPattern: (
       <div className="absolute inset-0 overflow-hidden opacity-[0.16] pointer-events-none">
-        <svg className="absolute w-full h-full" viewBox="0 0 1000 500">
-          {/* Main growth graph - left side */}
-          <polyline points="30,450 80,380 130,400 180,300 230,320 280,200 330,220 380,120" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-green-600"/>
-          <circle cx="80" cy="380" r="6" fill="currentColor" className="text-green-500"/>
-          <circle cx="180" cy="300" r="6" fill="currentColor" className="text-green-600"/>
-          <circle cx="280" cy="200" r="6" fill="currentColor" className="text-emerald-600"/>
-          <circle cx="380" cy="120" r="6" fill="currentColor" className="text-green-700"/>
+        <svg className="absolute w-full h-full" preserveAspectRatio="none" viewBox="0 0 1400 400">
+          {/* Far LEFT graph */}
+          <polyline points="10,380 40,340 70,350 100,280 130,290 160,220 190,230 220,180" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-green-600"/>
+          <circle cx="70" cy="350" r="6" fill="currentColor" className="text-green-500"/>
+          <circle cx="130" cy="290" r="6" fill="currentColor" className="text-green-600"/>
+          <circle cx="190" cy="230" r="6" fill="currentColor" className="text-emerald-600"/>
+          {/* Left arrows */}
+          <path d="M 80,140 L 80,90 L 68,102 M 80,90 L 92,102" stroke="currentColor" strokeWidth="3" className="text-emerald-600"/>
+          <path d="M 180,120 L 180,70 L 168,82 M 180,70 L 192,82" stroke="currentColor" strokeWidth="3" className="text-green-700"/>
+          {/* Left bars */}
+          <rect x="20" y="330" width="20" height="50" fill="currentColor" className="text-green-400" opacity="0.4"/>
+          <rect x="50" y="310" width="20" height="70" fill="currentColor" className="text-green-500" opacity="0.4"/>
           
-          {/* Second graph - middle */}
-          <polyline points="400,470 450,420 500,400 550,320 600,280 650,200" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-emerald-500"/>
-          <circle cx="500" cy="400" r="6" fill="currentColor" className="text-emerald-500"/>
-          <circle cx="600" cy="280" r="6" fill="currentColor" className="text-emerald-600"/>
+          {/* LEFT-CENTER graph */}
+          <polyline points="280,390 320,350 360,360 400,290 440,300 480,230" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-emerald-500"/>
+          <circle cx="360" cy="360" r="6" fill="currentColor" className="text-emerald-500"/>
+          <circle cx="440" cy="300" r="6" fill="currentColor" className="text-emerald-600"/>
+          <path d="M 350,180 L 350,130 L 338,142 M 350,130 L 362,142" stroke="currentColor" strokeWidth="3" className="text-green-600"/>
+          <text x="260" y="80" fontSize="50" fill="currentColor" className="text-emerald-500" opacity="0.3">%</text>
           
-          {/* Third graph - right side */}
-          <polyline points="680,460 720,400 760,380 800,280 840,260 880,180 920,160 960,100" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-green-500"/>
-          <circle cx="800" cy="280" r="6" fill="currentColor" className="text-green-600"/>
-          <circle cx="920" cy="160" r="6" fill="currentColor" className="text-green-700"/>
+          {/* CENTER graph */}
+          <polyline points="550,380 590,330 630,340 670,270 710,280 750,210 790,220 830,160" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-green-600"/>
+          <circle cx="670" cy="270" r="6" fill="currentColor" className="text-green-600"/>
+          <circle cx="790" cy="220" r="6" fill="currentColor" className="text-green-700"/>
+          <path d="M 700,150 L 700,100 L 688,112 M 700,100 L 712,112" stroke="currentColor" strokeWidth="3" className="text-emerald-700"/>
           
-          {/* Upward arrows - scattered */}
-          <path d="M 150,180 L 150,120 L 135,135 M 150,120 L 165,135" stroke="currentColor" strokeWidth="3" className="text-emerald-600"/>
-          <path d="M 350,250 L 350,190 L 335,205 M 350,190 L 365,205" stroke="currentColor" strokeWidth="3" className="text-green-600"/>
-          <path d="M 550,200 L 550,140 L 535,155 M 550,140 L 565,155" stroke="currentColor" strokeWidth="3" className="text-emerald-700"/>
-          <path d="M 750,180 L 750,120 L 735,135 M 750,120 L 765,135" stroke="currentColor" strokeWidth="3" className="text-green-700"/>
-          <path d="M 900,80 L 900,20 L 885,35 M 900,20 L 915,35" stroke="currentColor" strokeWidth="3" className="text-emerald-600"/>
+          {/* RIGHT-CENTER graph */}
+          <polyline points="900,390 940,340 980,350 1020,280 1060,290 1100,220" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-emerald-600"/>
+          <circle cx="980" cy="350" r="6" fill="currentColor" className="text-emerald-500"/>
+          <circle cx="1060" cy="290" r="6" fill="currentColor" className="text-green-600"/>
+          <path d="M 1000,180 L 1000,130 L 988,142 M 1000,130 L 1012,142" stroke="currentColor" strokeWidth="3" className="text-green-700"/>
+          <text x="920" y="90" fontSize="50" fill="currentColor" className="text-green-500" opacity="0.3">%</text>
           
-          {/* Bar charts - bottom */}
-          <rect x="50" y="400" width="25" height="60" fill="currentColor" className="text-green-400" opacity="0.4"/>
-          <rect x="90" y="380" width="25" height="80" fill="currentColor" className="text-green-500" opacity="0.4"/>
-          <rect x="130" y="350" width="25" height="110" fill="currentColor" className="text-emerald-500" opacity="0.4"/>
-          <rect x="170" y="320" width="25" height="140" fill="currentColor" className="text-green-600" opacity="0.4"/>
+          {/* Far RIGHT graph */}
+          <polyline points="1180,380 1210,340 1240,350 1270,290 1300,300 1330,240 1360,250 1390,200" fill="none" stroke="currentColor" strokeWidth="3.5" className="text-green-500"/>
+          <circle cx="1270" cy="290" r="6" fill="currentColor" className="text-green-600"/>
+          <circle cx="1360" cy="250" r="6" fill="currentColor" className="text-green-700"/>
+          {/* Right arrows */}
+          <path d="M 1200,140 L 1200,90 L 1188,102 M 1200,90 L 1212,102" stroke="currentColor" strokeWidth="3" className="text-emerald-600"/>
+          <path d="M 1320,110 L 1320,60 L 1308,72 M 1320,60 L 1332,72" stroke="currentColor" strokeWidth="3" className="text-green-700"/>
+          {/* Right bars */}
+          <rect x="1320" y="320" width="20" height="60" fill="currentColor" className="text-green-500" opacity="0.4"/>
+          <rect x="1350" y="300" width="20" height="80" fill="currentColor" className="text-emerald-500" opacity="0.4"/>
           
-          {/* Percentage symbols */}
-          <text x="250" y="80" fontSize="60" fill="currentColor" className="text-emerald-500" opacity="0.3">%</text>
-          <text x="650" y="450" fontSize="60" fill="currentColor" className="text-green-500" opacity="0.3">%</text>
+          {/* Top indicators */}
+          <text x="550" y="50" fontSize="50" fill="currentColor" className="text-green-600" opacity="0.3">%</text>
+          <text x="1150" y="380" fontSize="50" fill="currentColor" className="text-emerald-500" opacity="0.3">%</text>
         </svg>
       </div>
     )
@@ -203,50 +277,75 @@ export default function Hero() {
     number: '05',
     bgPattern: (
       <div className="absolute inset-0 overflow-hidden opacity-[0.15] pointer-events-none">
-        <svg className="absolute w-full h-full" viewBox="0 0 1000 500">
-          {/* Top row - Checkmarks with circles */}
-          <circle cx="100" cy="80" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-500"/>
-          <path d="M 70,80 L 90,100 L 130,60" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
+        <svg className="absolute w-full h-full" preserveAspectRatio="none" viewBox="0 0 1400 400">
+          {/* Far LEFT column */}
+          <circle cx="60" cy="60" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-500"/>
+          <path d="M 35,60 L 52,77 L 85,44" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
+          <path d="M 40,180 L 60,200 L 95,165" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-500"/>
+          <circle cx="65" cy="320" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-600"/>
+          <path d="M 40,320 L 57,337 L 90,304" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-700"/>
           
-          <circle cx="300" cy="80" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-500"/>
-          <path d="M 270,80 L 290,100 L 330,60" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-600"/>
+          {/* LEFT-CENTER column */}
+          <circle cx="250" cy="80" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-500"/>
+          <path d="M 225,80 L 242,97 L 275,64" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-600"/>
+          <path d="M 230,200 L 250,220 L 285,185" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-500"/>
+          <circle cx="255" cy="340" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-600"/>
+          <path d="M 230,340 L 247,357 L 280,324" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-700"/>
           
-          <circle cx="500" cy="80" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-600"/>
-          <path d="M 470,80 L 490,100 L 530,60" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-700"/>
+          {/* CENTER-LEFT column */}
+          <circle cx="450" cy="70" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-600"/>
+          <path d="M 425,70 L 442,87 L 475,54" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-700"/>
+          <path d="M 430,210 L 450,230 L 485,195" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-500"/>
+          <circle cx="455" cy="330" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-500"/>
+          <path d="M 430,330 L 447,347 L 480,314" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
           
-          <circle cx="700" cy="80" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-600"/>
-          <path d="M 670,80 L 690,100 L 730,60" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-700"/>
+          {/* CENTER column */}
+          <circle cx="700" cy="65" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-600"/>
+          <path d="M 675,65 L 692,82 L 725,49" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-700"/>
+          <path d="M 680,195 L 700,215 L 735,180" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
+          <circle cx="705" cy="325" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-500"/>
+          <path d="M 680,325 L 697,342 L 730,309" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-600"/>
           
-          <circle cx="900" cy="80" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-500"/>
-          <path d="M 870,80 L 890,100 L 930,60" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
+          {/* CENTER-RIGHT column */}
+          <circle cx="950" cy="75" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-500"/>
+          <path d="M 925,75 L 942,92 L 975,59" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
+          <path d="M 930,205 L 950,225 L 985,190" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-600"/>
+          <circle cx="955" cy="335" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-600"/>
+          <path d="M 930,335 L 947,352 L 980,319" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-700"/>
           
-          {/* Middle row - Checkmarks */}
-          <path d="M 150,220 L 175,245 L 225,195" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-500"/>
-          <path d="M 400,220 L 425,245 L 475,195" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-500"/>
-          <path d="M 650,220 L 675,245 L 725,195" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
-          <path d="M 850,220 L 875,245 L 925,195" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-600"/>
+          {/* RIGHT-CENTER column */}
+          <circle cx="1150" cy="70" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-500"/>
+          <path d="M 1125,70 L 1142,87 L 1175,54" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-600"/>
+          <path d="M 1130,200 L 1150,220 L 1185,185" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-500"/>
+          <circle cx="1155" cy="330" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-600"/>
+          <path d="M 1130,330 L 1147,347 L 1180,314" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-700"/>
           
-          {/* Bottom row - Checkmarks with circles */}
-          <circle cx="100" cy="400" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-500"/>
-          <path d="M 70,400 L 90,420 L 130,380" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-600"/>
-          
-          <circle cx="350" cy="400" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-600"/>
-          <path d="M 320,400 L 340,420 L 380,380" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-700"/>
-          
-          <circle cx="600" cy="400" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-orange-600"/>
-          <path d="M 570,400 L 590,420 L 630,380" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-700"/>
-          
-          <circle cx="850" cy="400" r="45" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-500"/>
-          <path d="M 820,400 L 840,420 L 880,380" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
+          {/* Far RIGHT column */}
+          <circle cx="1330" cy="65" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-600"/>
+          <path d="M 1305,65 L 1322,82 L 1355,49" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-700"/>
+          <path d="M 1310,190 L 1330,210 L 1365,175" fill="none" stroke="currentColor" strokeWidth="5" className="text-orange-500"/>
+          <circle cx="1335" cy="325" r="40" fill="none" stroke="currentColor" strokeWidth="3" className="text-yellow-500"/>
+          <path d="M 1310,325 L 1327,342 L 1360,309" fill="none" stroke="currentColor" strokeWidth="5" className="text-yellow-600"/>
         </svg>
         
-        {/* Bugs scattered throughout */}
-        <div className="absolute top-12 left-1/4 text-4xl text-red-500">🐛</div>
-        <div className="absolute top-1/3 right-1/4 text-3xl text-red-600">🐛</div>
-        <div className="absolute bottom-1/4 left-1/3 text-4xl text-red-500">🐛</div>
-        <div className="absolute bottom-12 right-1/3 text-3xl text-red-600">🐛</div>
-        <div className="absolute top-1/2 left-12 text-3xl text-red-700 line-through">🐛</div>
-        <div className="absolute top-1/4 right-12 text-3xl text-red-700 line-through">🐛</div>
+        {/* Bugs scattered LEFT to RIGHT */}
+        <div className="absolute top-8 left-[8%] text-3xl text-red-500">🐛</div>
+        <div className="absolute top-[25%] left-[15%] text-3xl text-red-700 line-through">🐛</div>
+        <div className="absolute top-[55%] left-[12%] text-3xl text-red-600">🐛</div>
+        <div className="absolute bottom-8 left-[10%] text-3xl text-red-700 line-through">🐛</div>
+        
+        <div className="absolute top-12 left-[35%] text-4xl text-red-500">🐛</div>
+        <div className="absolute bottom-12 left-[32%] text-3xl text-red-600">🐛</div>
+        
+        <div className="absolute top-[45%] left-[50%] -translate-x-1/2 text-3xl text-red-700 line-through">🐛</div>
+        
+        <div className="absolute top-10 right-[35%] text-3xl text-red-600">🐛</div>
+        <div className="absolute bottom-10 right-[32%] text-4xl text-red-500">🐛</div>
+        
+        <div className="absolute top-6 right-[10%] text-3xl text-red-700 line-through">🐛</div>
+        <div className="absolute top-[28%] right-[12%] text-3xl text-red-600">🐛</div>
+        <div className="absolute top-[58%] right-[15%] text-3xl text-red-500">🐛</div>
+        <div className="absolute bottom-6 right-[8%] text-3xl text-red-700 line-through">🐛</div>
       </div>
     )
   },
@@ -258,40 +357,72 @@ export default function Hero() {
     number: '06',
     bgPattern: (
       <div className="absolute inset-0 overflow-hidden opacity-[0.14] pointer-events-none">
-        <svg className="absolute w-full h-full" viewBox="0 0 1000 500">
-          {/* Multiple rocket trails */}
-          <path d="M 50,480 Q 100,420 150,380 T 250,280 T 350,180 T 450,80" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-indigo-500"/>
-          <path d="M 200,500 Q 250,450 300,400 T 400,300 T 500,200 T 600,100" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-blue-500"/>
-          <path d="M 500,480 Q 550,430 600,380 T 700,280 T 800,180 T 900,80" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-indigo-600"/>
+        <svg className="absolute w-full h-full" preserveAspectRatio="none" viewBox="0 0 1400 400">
+          {/* LEFT rocket trail */}
+          <path d="M 20,390 Q 60,350 100,320 T 180,250 T 260,180 T 340,110" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-indigo-500"/>
           
-          {/* Stars - many scattered */}
-          <circle cx="100" cy="80" r="4" fill="currentColor" className="text-blue-400"/>
-          <circle cx="180" cy="120" r="3" fill="currentColor" className="text-indigo-400"/>
-          <circle cx="280" cy="60" r="5" fill="currentColor" className="text-blue-500"/>
+          {/* LEFT-CENTER rocket trail */}
+          <path d="M 200,395 Q 250,360 300,330 T 400,260 T 500,190 T 600,120" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-blue-500"/>
+          
+          {/* CENTER rocket trail */}
+          <path d="M 500,390 Q 550,350 600,320 T 680,250 T 760,180 T 840,110" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-indigo-600"/>
+          
+          {/* RIGHT-CENTER rocket trail */}
+          <path d="M 800,395 Q 850,360 900,330 T 1000,260 T 1100,190 T 1200,120" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-blue-600"/>
+          
+          {/* RIGHT rocket trail */}
+          <path d="M 1050,390 Q 1100,350 1150,320 T 1230,250 T 1310,180 T 1390,110" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6,4" className="text-indigo-700"/>
+          
+          {/* Stars - LEFT side */}
+          <circle cx="50" cy="60" r="4" fill="currentColor" className="text-blue-400"/>
+          <circle cx="110" cy="100" r="3" fill="currentColor" className="text-indigo-400"/>
+          <circle cx="80" cy="180" r="4" fill="currentColor" className="text-blue-500"/>
+          <circle cx="140" cy="230" r="3" fill="currentColor" className="text-indigo-500"/>
+          <circle cx="100" cy="310" r="4" fill="currentColor" className="text-blue-400"/>
+          
+          {/* Stars - LEFT-CENTER */}
+          <circle cx="280" cy="70" r="5" fill="currentColor" className="text-blue-500"/>
           <circle cx="350" cy="140" r="3" fill="currentColor" className="text-indigo-500"/>
-          <circle cx="480" cy="90" r="4" fill="currentColor" className="text-blue-600"/>
-          <circle cx="580" cy="150" r="3" fill="currentColor" className="text-indigo-600"/>
-          <circle cx="680" cy="70" r="5" fill="currentColor" className="text-blue-500"/>
-          <circle cx="780" cy="130" r="4" fill="currentColor" className="text-indigo-500"/>
-          <circle cx="880" cy="100" r="3" fill="currentColor" className="text-blue-400"/>
-          <circle cx="150" cy="250" r="3" fill="currentColor" className="text-indigo-400"/>
-          <circle cx="350" cy="280" r="4" fill="currentColor" className="text-blue-500"/>
-          <circle cx="550" cy="300" r="3" fill="currentColor" className="text-indigo-500"/>
-          <circle cx="750" cy="250" r="4" fill="currentColor" className="text-blue-600"/>
-          <circle cx="200" cy="380" r="3" fill="currentColor" className="text-indigo-300"/>
-          <circle cx="450" cy="400" r="3" fill="currentColor" className="text-blue-400"/>
-          <circle cx="700" cy="420" r="4" fill="currentColor" className="text-indigo-400"/>
+          <circle cx="320" cy="220" r="4" fill="currentColor" className="text-blue-600"/>
+          <circle cx="380" cy="290" r="3" fill="currentColor" className="text-indigo-400"/>
+          <circle cx="280" cy="350" r="4" fill="currentColor" className="text-blue-400"/>
           
-          {/* Large upward arrows */}
-          <path d="M 150,450 L 150,320 L 125,345 M 150,320 L 175,345" stroke="currentColor" strokeWidth="4" className="text-indigo-600"/>
-          <path d="M 400,450 L 400,300 L 375,325 M 400,300 L 425,325" stroke="currentColor" strokeWidth="4" className="text-blue-600"/>
-          <path d="M 650,450 L 650,320 L 625,345 M 650,320 L 675,345" stroke="currentColor" strokeWidth="4" className="text-indigo-700"/>
-          <path d="M 880,450 L 880,300 L 855,325 M 880,300 L 905,325" stroke="currentColor" strokeWidth="4" className="text-blue-700"/>
+          {/* Stars - CENTER */}
+          <circle cx="580" cy="80" r="4" fill="currentColor" className="text-blue-600"/>
+          <circle cx="680" cy="50" r="5" fill="currentColor" className="text-indigo-600"/>
+          <circle cx="630" cy="160" r="3" fill="currentColor" className="text-blue-500"/>
+          <circle cx="720" cy="210" r="4" fill="currentColor" className="text-indigo-500"/>
+          <circle cx="660" cy="290" r="3" fill="currentColor" className="text-blue-400"/>
+          <circle cx="580" cy="360" r="4" fill="currentColor" className="text-indigo-400"/>
           
-          {/* Sparkle effects */}
-          <path d="M 250,150 L 260,160 M 250,160 L 260,150" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
-          <path d="M 550,80 L 560,90 M 550,90 L 560,80" stroke="currentColor" strokeWidth="2" className="text-indigo-400"/>
-          <path d="M 800,200 L 810,210 M 800,210 L 810,200" stroke="currentColor" strokeWidth="2" className="text-blue-500"/>
+          {/* Stars - RIGHT-CENTER */}
+          <circle cx="950" cy="70" r="4" fill="currentColor" className="text-blue-600"/>
+          <circle cx="1020" cy="120" r="3" fill="currentColor" className="text-indigo-600"/>
+          <circle cx="980" cy="200" r="5" fill="currentColor" className="text-blue-500"/>
+          <circle cx="1050" cy="270" r="3" fill="currentColor" className="text-indigo-500"/>
+          <circle cx="920" cy="340" r="4" fill="currentColor" className="text-blue-400"/>
+          
+          {/* Stars - RIGHT side */}
+          <circle cx="1180" cy="60" r="4" fill="currentColor" className="text-blue-500"/>
+          <circle cx="1250" cy="110" r="3" fill="currentColor" className="text-indigo-500"/>
+          <circle cx="1300" cy="180" r="5" fill="currentColor" className="text-blue-600"/>
+          <circle cx="1350" cy="240" r="3" fill="currentColor" className="text-indigo-600"/>
+          <circle cx="1280" cy="310" r="4" fill="currentColor" className="text-blue-400"/>
+          
+          {/* Upward arrows - distributed across */}
+          <path d="M 100,370 L 100,280 L 82,298 M 100,280 L 118,298" stroke="currentColor" strokeWidth="4" className="text-indigo-600"/>
+          <path d="M 350,370 L 350,270 L 332,288 M 350,270 L 368,288" stroke="currentColor" strokeWidth="4" className="text-blue-600"/>
+          <path d="M 600,370 L 600,280 L 582,298 M 600,280 L 618,298" stroke="currentColor" strokeWidth="4" className="text-indigo-700"/>
+          <path d="M 850,370 L 850,270 L 832,288 M 850,270 L 868,288" stroke="currentColor" strokeWidth="4" className="text-blue-700"/>
+          <path d="M 1100,370 L 1100,280 L 1082,298 M 1100,280 L 1118,298" stroke="currentColor" strokeWidth="4" className="text-indigo-600"/>
+          <path d="M 1330,370 L 1330,270 L 1312,288 M 1330,270 L 1348,288" stroke="currentColor" strokeWidth="4" className="text-blue-700"/>
+          
+          {/* Sparkle effects - scattered */}
+          <path d="M 200,120 L 210,130 M 200,130 L 210,120" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
+          <path d="M 450,90 L 460,100 M 450,100 L 460,90" stroke="currentColor" strokeWidth="2" className="text-indigo-400"/>
+          <path d="M 750,70 L 760,80 M 750,80 L 760,70" stroke="currentColor" strokeWidth="2" className="text-blue-500"/>
+          <path d="M 1000,100 L 1010,110 M 1000,110 L 1010,100" stroke="currentColor" strokeWidth="2" className="text-indigo-500"/>
+          <path d="M 1250,80 L 1260,90 M 1250,90 L 1260,80" stroke="currentColor" strokeWidth="2" className="text-blue-400"/>
         </svg>
       </div>
     )
