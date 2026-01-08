@@ -133,17 +133,26 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative bg-gradient-to-br from-blue-50/70 via-white/90 to-purple-50/70 backdrop-blur-lg rounded-3xl p-10 border-2 border-blue-100 shadow-2xl overflow-hidden">
+            <div className="relative bg-gradient-to-br from-blue-50 via-white to-orange-50/40 backdrop-blur-lg rounded-3xl p-10 border border-blue-200/50 shadow-2xl overflow-hidden">
               
-              {/* Animated pattern background */}
-              <motion.div 
-                className="absolute inset-0 opacity-5"
-                style={{
-                  backgroundImage: `
-                    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(59, 130, 246, 0.1) 10px, rgba(59, 130, 246, 0.1) 20px),
-                    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(147, 51, 234, 0.1) 10px, rgba(147, 51, 234, 0.1) 20px)
-                  `
+              {/* Animated gradient orbs */}
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 90, 0],
+                  opacity: [0.3, 0.5, 0.3]
                 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-20 -left-20 w-60 h-60 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 rounded-full blur-3xl"
+              />
+              <motion.div
+                animate={{ 
+                  scale: [1.2, 1, 1.2],
+                  rotate: [90, 0, 90],
+                  opacity: [0.3, 0.5, 0.3]
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-20 -right-20 w-60 h-60 bg-gradient-to-br from-orange-400/30 to-amber-400/30 rounded-full blur-3xl"
               />
               
               <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
@@ -157,13 +166,14 @@ export default function Contact() {
                     Ime i prezime *
                   </label>
                   <motion.input
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ scale: 1.01 }}
+                    whileHover={{ y: -2 }}
                     type="text"
                     name="name"
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:ring-4 focus:ring-blue-600/20 outline-none transition-all text-gray-900 font-semibold"
+                    className="w-full px-6 py-4 bg-gradient-to-r from-white via-blue-50/30 to-white border-2 border-blue-200/50 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:shadow-lg focus:shadow-blue-500/20 outline-none transition-all text-gray-900 font-semibold placeholder:text-gray-400 hover:border-blue-300 hover:shadow-md"
                     placeholder="Vaše ime"
                   />
                 </motion.div>
@@ -177,13 +187,14 @@ export default function Contact() {
                     Email adresa *
                   </label>
                   <motion.input
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ scale: 1.01 }}
+                    whileHover={{ y: -2 }}
                     type="email"
                     name="email"
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:ring-4 focus:ring-blue-600/20 outline-none transition-all text-gray-900 font-semibold"
+                    className="w-full px-6 py-4 bg-gradient-to-r from-white via-blue-50/30 to-white border-2 border-blue-200/50 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:shadow-lg focus:shadow-blue-500/20 outline-none transition-all text-gray-900 font-semibold placeholder:text-gray-400 hover:border-blue-300 hover:shadow-md"
                     placeholder="vas@email.com"
                   />
                 </motion.div>
@@ -197,14 +208,15 @@ export default function Contact() {
                     Naslov *
                   </label>
                   <motion.input
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ scale: 1.01 }}
+                    whileHover={{ y: -2 }}
                     type="text"
                     name="subject"
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:ring-4 focus:ring-blue-600/20 outline-none transition-all text-gray-900 font-semibold"
-                    placeholder="O čemu se radi?"
+                    className="w-full px-6 py-4 bg-gradient-to-r from-white via-blue-50/30 to-white border-2 border-blue-200/50 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:shadow-lg focus:shadow-blue-500/20 outline-none transition-all text-gray-900 font-semibold placeholder:text-gray-400 hover:border-blue-300 hover:shadow-md"
+                    placeholder="Naslov poruke"
                   />
                 </motion.div>
 
@@ -217,13 +229,14 @@ export default function Contact() {
                     Poruka *
                   </label>
                   <motion.textarea
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ scale: 1.01 }}
+                    whileHover={{ y: -2 }}
                     name="message"
                     required
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 outline-none transition-all resize-none text-gray-900 font-medium"
+                    className="w-full px-6 py-4 bg-gradient-to-br from-white via-blue-50/30 to-white border-2 border-blue-200/50 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:shadow-lg focus:shadow-blue-500/20 outline-none transition-all resize-none text-gray-900 font-medium placeholder:text-gray-400 hover:border-blue-300 hover:shadow-md"
                     placeholder="Opišite svoj projekat..."
                   />
                 </motion.div>
@@ -309,7 +322,7 @@ export default function Contact() {
               {
                 icon: '📱',
                 title: 'Telefon',
-                content: '+381 XX XXX XXXX',
+                content: '+381 616465642',
                 gradient: 'from-purple-500 to-pink-500',
                 delay: 0.4
               },
@@ -323,7 +336,7 @@ export default function Contact() {
               {
                 icon: '⏰',
                 title: 'Radno vreme',
-                content: 'Pon - Pet: 09:00 - 17:00',
+                content: 'Pon - Pet: 09:00 - 22:00',
                 gradient: 'from-green-500 to-emerald-500',
                 delay: 0.8
               }
