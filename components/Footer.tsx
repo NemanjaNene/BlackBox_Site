@@ -17,7 +17,7 @@ export default function Footer() {
         transition={{ duration: 4, repeat: Infinity }}
       />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
@@ -172,25 +172,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t-2 border-gray-200">
-          <div className="md:flex md:items-center md:justify-between">
+        <div className="mt-8 pt-6 border-t-2 border-gray-200">
+          <div className="text-center">
             <p className="text-gray-600 text-sm font-medium">
               © {currentYear} Black Box Testing. Sva prava zadržana.
             </p>
-            <div className="mt-4 md:mt-0">
-              <ul className="flex space-x-6 text-sm text-gray-600 font-medium">
-                <li>
-                  <a href="#" className="hover:text-blue-600 transition-colors">
-                    Politika privatnosti
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-600 transition-colors">
-                    Uslovi korišćenja
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
