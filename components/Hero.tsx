@@ -155,7 +155,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="max-w-6xl mx-auto mb-12 px-4"
+            className="max-w-7xl mx-auto mb-12 px-4"
           >
             <div className="relative">
               {/* Carousel Container */}
@@ -169,15 +169,10 @@ export default function Hero() {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     className="w-full"
                   >
-                    <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-3xl p-10 md:p-16 border border-gray-200/50 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
+                    <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-3xl px-10 py-8 md:px-16 md:py-10 border border-gray-200/50 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
                       
                       {/* Animated gradient border glow */}
                       <div className={`absolute inset-0 bg-gradient-to-r ${processSteps[currentStep].gradient} opacity-0 group-hover:opacity-100 blur-xl -z-10 transition-opacity duration-500`} />
-                      
-                      {/* Top gradient accent - thicker and more prominent */}
-                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${processSteps[currentStep].gradient} rounded-t-3xl`}>
-                        <div className={`h-full w-full bg-gradient-to-r ${processSteps[currentStep].gradient} blur-sm opacity-50`} />
-                      </div>
                       
                       {/* Number badge - smaller and cleaner */}
                       <motion.div 
