@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function Navigation() {
@@ -26,40 +27,65 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'glass shadow-2xl shadow-cyan-500/10' : 'bg-transparent'
+        isScrolled 
+          ? 'bg-gray-50/80 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
+          : 'bg-gradient-to-b from-gray-100/60 via-blue-50/40 to-transparent backdrop-blur-lg'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-24">
           {/* Logo - Responsive */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 -ml-3 md:-ml-4">
             <a href="#home" className="group">
-              <div className="relative transform group-hover:scale-105 transition-all duration-300">
-                <Image 
-                  src="/logo.png" 
-                  alt="Black Box Testing" 
-                  width={440}
-                  height={132}
-                  className="h-16 sm:h-20 md:h-24 lg:h-32 w-auto"
-                  style={{ filter: 'brightness(2.5) contrast(1.4) saturate(1.2)' }}
-                  priority
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.4 }}
+              >
+                {/* Animated glow background */}
+                <motion.div
+                  className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-60"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 180, 360],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
                 />
-              </div>
+                
+                <div className="relative">
+                  <Image 
+                    src="/black-box-logo.png" 
+                    alt="Black Box Testing" 
+                    width={500}
+                    height={500}
+                    className="h-24 sm:h-28 md:h-32 lg:h-40 w-auto relative z-10"
+                    style={{ 
+                      filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.4))',
+                    }}
+                    priority
+                  />
+                </div>
+              </motion.div>
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <a
+            <div className="ml-10 flex items-center gap-3">
+              {navItems.map((item, index) => (
+                <motion.a
                   key={item.name}
                   href={item.href}
-                  className="relative text-slate-300 hover:text-white px-4 py-2 text-sm font-medium transition-colors duration-200 group"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -1 }}
+                  className="relative text-gray-900 hover:text-white px-6 py-3 text-base font-bold transition-all duration-300 group rounded-2xl bg-white/60 backdrop-blur-sm border-2 border-gray-200 hover:border-blue-500 shadow-md hover:shadow-lg hover:shadow-blue-500/20 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500"
                 >
                   <span className="relative z-10">{item.name}</span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                </a>
+                  
+                  {/* Shine effect - disabled for calmer animation */}
+                </motion.a>
               ))}
             </div>
           </div>
@@ -68,7 +94,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-gray-700 hover:text-blue-600 p-2"
             >
               <svg
                 className="h-6 w-6"
@@ -99,21 +125,29 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass border-t border-white/10">
-          <div className="px-4 pt-4 pb-6 space-y-2">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="md:hidden bg-gradient-to-b from-gray-50/98 to-white/98 backdrop-blur-xl border-t-2 border-gray-200 shadow-2xl"
+        >
+          <div className="px-6 pt-6 pb-8 space-y-3">
             {navItems.map((item, i) => (
-              <a
+              <motion.a
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 rounded-xl font-medium transition-all"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1 }}
+                whileTap={{ scale: 0.98 }}
+                className="block px-6 py-4 text-gray-900 hover:text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 rounded-2xl font-bold transition-all text-lg border-2 border-gray-200 hover:border-blue-500 bg-white/60 backdrop-blur-sm shadow-md hover:shadow-xl"
                 onClick={() => setIsMobileMenuOpen(false)}
-                style={{ animationDelay: `${i * 0.1}s` }}
               >
                 {item.name}
-              </a>
+              </motion.a>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   )

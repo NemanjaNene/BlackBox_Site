@@ -17,8 +17,8 @@ export default function MatrixRain() {
 
     // Code characters to display
     const code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>{}[]()=/\\|@#$%^&*';
-    // Responsive font size - smaller on mobile
-    const fontSize = window.innerWidth < 640 ? 12 : 16
+    // Responsive font size - BIGGER for better visibility
+    const fontSize = window.innerWidth < 640 ? 16 : 20
     const columns = canvas.width / fontSize
 
     const drops: number[] = []
@@ -29,21 +29,23 @@ export default function MatrixRain() {
     function draw() {
       if (!ctx || !canvas) return
 
-      // Create fade effect
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.1)'
+      // Create fade effect - balanced
+      ctx.fillStyle = 'rgba(250, 248, 245, 0.05)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      ctx.font = fontSize + 'px monospace'
+      ctx.font = `bold ${fontSize}px monospace`
+      ctx.shadowBlur = 4
+      ctx.shadowColor = 'rgba(59, 130, 246, 0.5)'
 
       for (let i = 0; i < drops.length; i++) {
         // Random character
         const text = code.charAt(Math.floor(Math.random() * code.length))
         
-        // Color gradient - blue shades (brighter)
+        // Balanced colors - ~30% reduced
         const gradient = ctx.createLinearGradient(0, drops[i] * fontSize, 0, (drops[i] + 1) * fontSize)
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)')
-        gradient.addColorStop(0.5, 'rgba(96, 165, 250, 1)')
-        gradient.addColorStop(1, 'rgba(147, 197, 253, 1)')
+        gradient.addColorStop(0, 'rgba(37, 99, 235, 0.5)')
+        gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.7)')
+        gradient.addColorStop(1, 'rgba(6, 182, 212, 0.8)')
         
         ctx.fillStyle = gradient
         ctx.fillText(text, i * fontSize, drops[i] * fontSize)
@@ -57,7 +59,7 @@ export default function MatrixRain() {
       }
     }
 
-    const interval = setInterval(draw, 40)
+    const interval = setInterval(draw, 35)
 
     // Handle resize
     const handleResize = () => {
@@ -65,7 +67,7 @@ export default function MatrixRain() {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       // Update columns on resize
-      const newFontSize = window.innerWidth < 640 ? 12 : 16
+      const newFontSize = window.innerWidth < 640 ? 16 : 20
       const newColumns = canvas.width / newFontSize
       drops.length = newColumns
       for (let i = 0; i < newColumns; i++) {
@@ -85,11 +87,12 @@ export default function MatrixRain() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 opacity-80"
+      className="absolute inset-0"
       style={{ 
         transform: 'perspective(800px) rotateX(5deg)',
         pointerEvents: 'none',
-        filter: 'brightness(1.2)'
+        filter: 'brightness(1.1) contrast(1.4) saturate(1.2)',
+        opacity: 0.6
       }}
     />
   )

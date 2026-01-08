@@ -1,164 +1,253 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import Tilt from 'react-parallax-tilt'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function Services() {
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+
   const services = [
     {
       icon: '💻',
       title: 'Web Development',
-      description: 'Kreiramo moderne, responzivne web sajtove i aplikacije koristeći najnovije tehnologije kao što su React, Next.js, TypeScript i Tailwind CSS.',
-      features: [
-        'Responzivan dizajn',
-        'SEO optimizacija',
-        'Brzo učitavanje',
-        'Cross-browser kompatibilnost'
-      ]
+      description: 'Kreiramo moderne, responzivne web sajtove i aplikacije.',
+      gradient: 'from-blue-500 to-cyan-500',
+      features: ['React & Next.js', 'TypeScript', 'Tailwind CSS', 'SEO optimizacija']
     },
     {
       icon: '🧪',
       title: 'QA & Testing',
-      description: 'Sveobuhvatno testiranje vaših aplikacija uključujući funkcionalnost, performanse, sigurnost i korisničko iskustvo.',
-      features: [
-        'Funkcionalno testiranje',
-        'Performance testiranje',
-        'Security testiranje',
-        'User acceptance testiranje'
-      ]
+      description: 'Kompletno testiranje funkcionalnosti i performansi.',
+      gradient: 'from-purple-500 to-pink-500',
+      features: ['Funkcionalno', 'Performance', 'Security', 'Acceptance']
     },
     {
       icon: '🛒',
       title: 'E-Commerce',
-      description: 'Razvoj kompletnih online prodavnica sa integracijom platnih sistema, upravljanjem inventarom i analitikom.',
-      features: [
-        'Platni sistemi',
-        'Inventory management',
-        'Analitika prodaje',
-        'Multi-currency podrška'
-      ]
+      description: 'Online prodavnice sa platnim sistemima i analitikom.',
+      gradient: 'from-green-500 to-emerald-500',
+      features: ['Platni sistemi', 'Inventory', 'Analytics', 'Multi-currency']
     },
     {
       icon: '📱',
-      title: 'Mobile-First Design',
-      description: 'Dizajniramo sa fokusom na mobilne uređaje, osiguravajući savršeno iskustvo na svim veličinama ekrana.',
-      features: [
-        'Responsive layout',
-        'Touch-optimized',
-        'Progressive Web Apps',
-        'Native-like experience'
-      ]
+      title: 'Mobile-First',
+      description: 'Dizajn optimizovan za mobilne uređaje.',
+      gradient: 'from-orange-500 to-red-500',
+      features: ['Responsive', 'Touch-optimized', 'PWA', 'Native-like']
     },
     {
       icon: '🔧',
-      title: 'Maintenance & Support',
-      description: 'Kontinuirana podrška, održavanje i unapređenje vaših web aplikacija kako bi uvek radile besprekorno.',
-      features: [
-        '24/7 monitoring',
-        'Redovni update-ovi',
-        'Backup & recovery',
-        'Performance optimization'
-      ]
+      title: 'Maintenance',
+      description: 'Kontinuirana podrška i unapređenje.',
+      gradient: 'from-yellow-500 to-orange-500',
+      features: ['24/7 monitoring', 'Updates', 'Backup', 'Optimization']
     },
     {
       icon: '🎨',
       title: 'UI/UX Design',
-      description: 'Kreativni dizajn koji kombinuje estetiku sa funkcionalošću, fokusirajući se na korisničko iskustvo.',
-      features: [
-        'User research',
-        'Wireframing',
-        'Prototyping',
-        'Usability testing'
-      ]
+      description: 'Kreativni dizajn fokusiran na korisnika.',
+      gradient: 'from-pink-500 to-rose-500',
+      features: ['User research', 'Wireframing', 'Prototyping', 'Testing']
     }
   ]
 
   return (
-    <section id="services" className="py-20 relative">
-      {/* Modern diagonal gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/10 via-transparent to-indigo-950/10" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Naše usluge
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Pružamo kompletan spektar usluga za razvoj i testiranje web aplikacija
-          </p>
-        </div>
+    <section ref={sectionRef} id="services" className="py-32 relative overflow-hidden">
+      {/* Animated Background Elements - LIGHT */}
+      <motion.div 
+        style={{ y }}
+        className="absolute top-20 right-10 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl"
+      />
+      <motion.div 
+        style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]), opacity: 0.2 }}
+        className="absolute bottom-40 left-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"
+      />
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <motion.h2 
+            className="text-5xl md:text-7xl font-black text-gray-950 mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            Naše{' '}
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent">
+              Usluge
+            </span>
+          </motion.h2>
+          
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="h-2 w-32 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-8 rounded-full"
+          />
+          
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto font-semibold"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            Kompletna rešenja za vaše digitalne potrebe
+          </motion.p>
+        </motion.div>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 100, rotateX: -30 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: index * 0.15, duration: 0.8 }}
+              whileHover={{ 
+                y: -20,
+                scale: 1.05,
+                rotateY: 10,
+                transition: { duration: 0.4 }
+              }}
+              className="group relative"
+              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
             >
-              <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                glareEnable={true}
-                glareMaxOpacity={0.3}
-                glareColor="#06b6d4"
-                glareBorderRadius="20px"
-                className="h-full"
-              >
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="group relative h-full p-6 md:p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden"
-                >
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative h-full bg-gradient-to-br from-white via-gray-50/80 to-white backdrop-blur-sm rounded-3xl p-8 border-2 border-gray-200 group-hover:border-transparent overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                
+                {/* Static subtle gradient hint */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.03] rounded-3xl`}></div>
+                
+                {/* Gradient border on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl p-0.5`}>
+                  <div className="h-full w-full bg-white/95 rounded-3xl"></div>
+                </div>
+                
+                {/* Animated gradient background */}
+                <motion.div 
+                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10`}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 90, 0],
+                  }}
+                  transition={{ duration: 10, repeat: Infinity }}
+                />
+                
+                {/* Top gradient line */}
+                <motion.div 
+                  className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${service.gradient} rounded-t-3xl`}
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  transition={{ delay: index * 0.15 + 0.5, duration: 0.8 }}
+                />
+                
+                {/* Content */}
+                <div className="relative z-10">
                   
-                  {/* Icon with background */}
+                  {/* Icon */}
                   <motion.div
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                    className="relative w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center text-5xl backdrop-blur-sm"
+                    animate={{ 
+                      y: [0, -8, 0],
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.3
+                    }}
+                    whileHover={{ 
+                      scale: 1.15,
+                      transition: { duration: 0.3 }
+                    }}
+                    className="text-7xl mb-6 filter drop-shadow-lg"
                   >
                     {service.icon}
                   </motion.div>
-
-                  <h3 className="relative text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-blue-400 transition-all">
-                    {service.title}
-                  </h3>
                   
-                  <p className="relative text-gray-300 mb-6 leading-relaxed">
+                  {/* Title */}
+                  <motion.h3 
+                    className="text-2xl font-black text-gray-950 mb-4"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {service.title}
+                  </motion.h3>
+                  
+                  {/* Description */}
+                  <p className="text-gray-800 mb-6 leading-relaxed font-semibold">
                     {service.description}
                   </p>
                   
-                  <ul className="relative space-y-3">
+                  {/* Features */}
+                  <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
-                      <motion.li
+                      <motion.li 
                         key={idx}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 * idx }}
-                        className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors"
+                        transition={{ delay: index * 0.15 + idx * 0.1 + 0.8 }}
+                        className="flex items-center text-sm text-gray-800 font-semibold"
                       >
-                        <span className="w-6 h-6 mr-3 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                          <svg className="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
+                        <motion.span 
+                          className={`mr-2 w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full`}
+                          whileHover={{ scale: 1.5 }}
+                        />
                         {feature}
                       </motion.li>
                     ))}
                   </ul>
+                </div>
 
-                  {/* Hover gradient border */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 blur transition-opacity duration-500" />
-                </motion.div>
-              </Tilt>
+                {/* Shine effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent -skew-x-12"
+                  initial={{ x: '-200%' }}
+                  whileHover={{ x: '200%' }}
+                  transition={{ duration: 0.8 }}
+                />
+              </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8 }}
+          className="text-center mt-20"
+        >
+          <motion.a
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            href="#contact"
+            className="inline-block px-12 py-5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-2xl font-bold text-lg shadow-xl shadow-blue-600/40 hover:shadow-2xl hover:shadow-blue-600/50 transition-all"
+          >
+            Kontaktirajte nas
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="inline-block ml-2"
+            >
+              →
+            </motion.span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   )
 }
-
