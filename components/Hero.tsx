@@ -155,7 +155,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="max-w-5xl mx-auto mb-12 px-4"
+            className="max-w-6xl mx-auto mb-12 px-4"
           >
             <div className="relative">
               {/* Carousel Container */}
@@ -169,13 +169,13 @@ export default function Hero() {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     className="w-full"
                   >
-                    <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-[2.5rem] p-10 md:p-16 border border-gray-200/50 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
+                    <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-3xl p-10 md:p-16 border border-gray-200/50 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
                       
                       {/* Animated gradient border glow */}
                       <div className={`absolute inset-0 bg-gradient-to-r ${processSteps[currentStep].gradient} opacity-0 group-hover:opacity-100 blur-xl -z-10 transition-opacity duration-500`} />
                       
                       {/* Top gradient accent - thicker and more prominent */}
-                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${processSteps[currentStep].gradient} rounded-t-[2.5rem]`}>
+                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${processSteps[currentStep].gradient} rounded-t-3xl`}>
                         <div className={`h-full w-full bg-gradient-to-r ${processSteps[currentStep].gradient} blur-sm opacity-50`} />
                       </div>
                       
@@ -183,7 +183,7 @@ export default function Hero() {
                       <motion.div 
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.6 }}
-                        className={`absolute top-6 right-6 w-14 h-14 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-xl backdrop-blur-sm border-2 border-white/20`}
+                        className={`absolute top-6 right-6 w-14 h-14 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-xl flex items-center justify-center text-white font-black text-lg shadow-xl backdrop-blur-sm border-2 border-white/20`}
                       >
                         {processSteps[currentStep].number}
                       </motion.div>
@@ -193,7 +193,7 @@ export default function Hero() {
                         <motion.div 
                           whileHover={{ scale: 1.1, rotate: 5 }}
                           transition={{ type: "spring", stiffness: 300 }}
-                          className={`flex-shrink-0 w-32 h-32 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-[2rem] flex items-center justify-center text-6xl shadow-2xl border-4 border-white/30 backdrop-blur-sm`}
+                          className={`flex-shrink-0 w-32 h-32 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-3xl flex items-center justify-center text-6xl shadow-2xl border-4 border-white/30 backdrop-blur-sm`}
                         >
                           {processSteps[currentStep].icon}
                         </motion.div>
@@ -228,7 +228,7 @@ export default function Hero() {
                           ]
                         }}
                         transition={{ duration: 5, repeat: Infinity }}
-                        className={`absolute inset-0 rounded-[2.5rem] pointer-events-none`} 
+                        className={`absolute inset-0 rounded-3xl pointer-events-none`} 
                       />
                     </div>
                   </motion.div>
