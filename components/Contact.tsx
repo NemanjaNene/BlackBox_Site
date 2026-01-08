@@ -310,104 +310,137 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Info Cards */}
-          <div className="space-y-6">
-            {[
-              {
-                icon: '📧',
-                title: 'Email',
-                content: 'Nemanjanikitovic1@gmail.com',
-                gradient: 'from-blue-500 to-cyan-500',
-                delay: 0.2
-              },
-              {
-                icon: '📱',
-                title: 'Telefon',
-                content: '+381 616465642',
-                gradient: 'from-purple-500 to-pink-500',
-                delay: 0.4
-              },
-              {
-                icon: '📍',
-                title: 'Lokacija',
-                content: 'Srbija',
-                gradient: 'from-orange-500 to-red-500',
-                delay: 0.6
-              },
-              {
-                icon: '⏰',
-                title: 'Radno vreme',
-                content: 'Pon - Pet: 09:00 - 22:00',
-                gradient: 'from-green-500 to-emerald-500',
-                delay: 0.8
-              }
-            ].map((info, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 100, rotateY: -30 }}
-                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: info.delay, duration: 0.8 }}
-                whileHover={{ 
-                  y: -10,
-                  scale: 1.05,
-                  rotateY: 10,
-                  transition: { duration: 0.3 }
-                }}
-                className="group relative"
-                style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
-              >
-                <div className="relative bg-gradient-to-br from-white via-gray-50/60 to-white backdrop-blur-sm rounded-3xl p-8 border-2 border-gray-200 group-hover:border-transparent shadow-xl group-hover:shadow-2xl transition-all overflow-hidden">
-                  
-                  {/* Static subtle gradient hint */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-[0.04] rounded-3xl`}></div>
-                  
-                  {/* Gradient border on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl p-0.5`}>
-                    <div className="h-full w-full bg-white/95 rounded-3xl"></div>
-                  </div>
-                  
-                  {/* Animated gradient background */}
+          <div className="space-y-5">
+            {/* Email Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group relative"
+            >
+              <div className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50/40 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/20 transition-all overflow-hidden">
+                
+                {/* Gradient glow on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500"></div>
+                
+                <div className="relative z-10 flex items-center gap-5">
                   <motion.div 
-                    className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-8`}
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 90, 0]
-                    }}
-                    transition={{ duration: 10, repeat: Infinity }}
-                  />
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.5 }}
+                    className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 transition-shadow"
+                  >
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </motion.div>
                   
-                  <div className="relative z-10 flex items-center gap-6">
-                    <motion.div
-                      animate={{ 
-                        y: [0, -6, 0],
-                      }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-                      whileHover={{ scale: 1.1 }}
-                      className="text-6xl"
-                    >
-                      {info.icon}
-                    </motion.div>
-                    
-                    <div className="flex-1">
-                      <h3 className="text-xl font-black text-gray-950 mb-2">
-                        {info.title}
-                      </h3>
-                      <p className="text-gray-800 font-semibold">
-                        {info.content}
-                      </p>
-                    </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Email</h3>
+                    <p className="text-gray-700 font-medium truncate">Nemanjanikitovic1@gmail.com</p>
                   </div>
-
-                  {/* Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -skew-x-12"
-                    initial={{ x: '-200%' }}
-                    whileHover={{ x: '200%' }}
-                    transition={{ duration: 0.8 }}
-                  />
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+
+            {/* Phone Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group relative"
+            >
+              <div className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50/40 backdrop-blur-sm rounded-2xl p-6 border border-purple-200/50 shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/20 transition-all overflow-hidden">
+                
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500"></div>
+                
+                <div className="relative z-10 flex items-center gap-5">
+                  <motion.div 
+                    whileHover={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 0.5 }}
+                    className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-purple-500/50 transition-shadow"
+                  >
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </motion.div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Telefon</h3>
+                    <p className="text-gray-700 font-medium">+381 616465642</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Location Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group relative"
+            >
+              <div className="relative bg-gradient-to-br from-orange-50 via-white to-red-50/40 backdrop-blur-sm rounded-2xl p-6 border border-orange-200/50 shadow-lg group-hover:shadow-xl group-hover:shadow-orange-500/20 transition-all overflow-hidden">
+                
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-red-500/0 group-hover:from-orange-500/10 group-hover:to-red-500/10 transition-all duration-500"></div>
+                
+                <div className="relative z-10 flex items-center gap-5">
+                  <motion.div 
+                    whileHover={{ y: [0, -5, 0] }}
+                    transition={{ duration: 0.5 }}
+                    className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-orange-500/50 transition-shadow"
+                  >
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </motion.div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Lokacija</h3>
+                    <p className="text-gray-700 font-medium">Srbija</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Working Hours Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group relative"
+            >
+              <div className="relative bg-gradient-to-br from-green-50 via-white to-emerald-50/40 backdrop-blur-sm rounded-2xl p-6 border border-green-200/50 shadow-lg group-hover:shadow-xl group-hover:shadow-green-500/20 transition-all overflow-hidden">
+                
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/0 to-emerald-500/0 group-hover:from-green-500/10 group-hover:to-emerald-500/10 transition-all duration-500"></div>
+                
+                <div className="relative z-10 flex items-center gap-5">
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                    whileHover={{ scale: 1.1 }}
+                    className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-green-500/50 transition-shadow"
+                  >
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </motion.div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">Radno vreme</h3>
+                    <p className="text-gray-700 font-medium">Pon - Pet: 09:00 - 22:00</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
