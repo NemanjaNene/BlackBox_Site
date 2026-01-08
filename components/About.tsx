@@ -172,22 +172,25 @@ export default function About() {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="w-full"
                 >
-                  <div className={`relative bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-3xl px-10 py-8 md:px-16 md:py-10 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
+                  <div className={`relative bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 backdrop-blur-xl rounded-3xl px-10 py-12 md:px-16 md:py-16 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500 border-2 border-gray-200/50`}>
+                    
+                    {/* Gradient top border */}
+                    <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${processSteps[currentStep].gradient}`} />
                     
                     {/* Animated gradient border glow */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${processSteps[currentStep].gradient} opacity-0 group-hover:opacity-100 blur-xl -z-10 transition-opacity duration-500`} />
+                    <div className={`absolute inset-0 bg-gradient-to-r ${processSteps[currentStep].gradient} opacity-10 group-hover:opacity-20 blur-xl -z-10 transition-opacity duration-500`} />
                     
-                    {/* Content */}
-                    <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-10">
+                    {/* Content - ALL CENTERED */}
+                    <div className="flex flex-col items-center justify-center text-center gap-8">
                       <motion.div 
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ type: "spring", stiffness: 300 }}
-                        className={`flex-shrink-0 w-32 h-32 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-3xl flex items-center justify-center text-6xl shadow-2xl border-4 border-white/30 backdrop-blur-sm`}
+                        className={`flex-shrink-0 w-36 h-36 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-3xl flex items-center justify-center text-7xl shadow-2xl border-4 border-white/30 backdrop-blur-sm`}
                       >
                         {processSteps[currentStep].icon}
                       </motion.div>
                       
-                      <div className="flex-1 text-center md:text-left">
+                      <div className="flex-1 max-w-3xl">
                         <motion.h3 
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -212,7 +215,7 @@ export default function About() {
                       animate={{ 
                         background: [
                           `linear-gradient(135deg, transparent 0%, transparent 100%)`,
-                          `linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(147, 51, 234, 0.03) 100%)`,
+                          `linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%)`,
                           `linear-gradient(135deg, transparent 0%, transparent 100%)`
                         ]
                       }}
