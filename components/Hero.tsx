@@ -179,11 +179,11 @@ export default function Hero() {
                         <div className={`h-full w-full bg-gradient-to-r ${processSteps[currentStep].gradient} blur-sm opacity-50`} />
                       </div>
                       
-                      {/* Number badge - larger and more modern */}
+                      {/* Number badge - smaller and cleaner */}
                       <motion.div 
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.6 }}
-                        className={`absolute top-8 right-8 w-20 h-20 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-3xl flex items-center justify-center text-white font-black text-2xl shadow-2xl backdrop-blur-sm border-4 border-white/20`}
+                        className={`absolute top-6 right-6 w-14 h-14 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-xl backdrop-blur-sm border-2 border-white/20`}
                       >
                         {processSteps[currentStep].number}
                       </motion.div>
@@ -234,24 +234,6 @@ export default function Hero() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-
-              {/* Navigation Arrows - More Modern */}
-              <motion.button
-                onClick={prevStep}
-                whileHover={{ scale: 1.1, x: -5 }}
-                whileTap={{ scale: 0.9 }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-20 w-16 h-16 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl border border-gray-200/50 hover:border-blue-400 hover:shadow-blue-500/20 transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-2xl backdrop-blur-sm"
-              >
-                ←
-              </motion.button>
-              <motion.button
-                onClick={nextStep}
-                whileHover={{ scale: 1.1, x: 5 }}
-                whileTap={{ scale: 0.9 }}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-20 w-16 h-16 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl border border-gray-200/50 hover:border-blue-400 hover:shadow-blue-500/20 transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-2xl backdrop-blur-sm"
-              >
-                →
-              </motion.button>
 
               {/* Dots Indicator - More Modern */}
               <div className="flex justify-center gap-3 mt-8">
