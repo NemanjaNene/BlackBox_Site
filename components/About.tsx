@@ -512,7 +512,7 @@ export default function About() {
 
   const stats = [
     { number: '50', suffix: '+', label: 'Projekata', color: 'from-blue-600 to-cyan-500' },
-    { number: '100', suffix: '%', label: 'Satisfakcija', color: 'from-cyan-600 to-blue-500' },
+    { number: '100', suffix: '%', label: 'Uspešnost', color: 'from-cyan-600 to-blue-500' },
     { number: '24', suffix: '/7', label: 'Podrška', color: 'from-purple-600 to-pink-500' },
   ]
 
