@@ -52,10 +52,13 @@ export default function TechStack() {
               whileHover={{ y: -5, scale: 1.05 }}
               className="group relative"
             >
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <div className="relative bg-gradient-to-br from-white via-gray-50/50 to-white rounded-2xl p-6 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden">
+                
+                {/* Gradient top accent */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Icon */}
-                <div className="text-4xl mb-3 text-center">
+                <div className="text-4xl mb-3 text-center group-hover:scale-110 transition-transform duration-300">
                   {tech.icon}
                 </div>
                 
@@ -66,7 +69,7 @@ export default function TechStack() {
                 
                 {/* Category badge */}
                 <div className="text-center">
-                  <span className="inline-block px-2 py-0.5 text-xs font-medium text-blue-600 bg-blue-50 rounded-full">
+                  <span className="inline-block px-2 py-0.5 text-xs font-medium text-blue-600 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-full border border-blue-100">
                     {tech.category}
                   </span>
                 </div>

@@ -126,10 +126,13 @@ export default function Portfolio() {
                   rel="noopener noreferrer"
                   className="block h-full group"
                 >
-                  <div className="h-full bg-white rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="relative h-full bg-white rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden">
+                    
+                    {/* Gradient top border */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 rounded-t-2xl" />
                     
                     {/* Image/Icon Section */}
-                    <div className="aspect-video bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center overflow-hidden">
+                    <div className="aspect-video bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex items-center justify-center overflow-hidden">
                       {project.isImage && project.imageUrl ? (
                         <div className="relative w-full h-full">
                           <Image
@@ -141,12 +144,12 @@ export default function Portfolio() {
                           />
                         </div>
                       ) : (
-                        <div className="text-7xl">{project.icon}</div>
+                        <div className="text-7xl group-hover:scale-110 transition-transform duration-300">{project.icon}</div>
                       )}
                     </div>
                     
                     {/* Content */}
-                    <div className="p-6">
+                    <div className="p-6 bg-gradient-to-br from-white via-orange-50/20 to-white">
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
                         {project.title}
                       </h3>
@@ -159,7 +162,7 @@ export default function Portfolio() {
                         {project.tags.map((tag, i) => (
                           <span 
                             key={i}
-                            className="px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded-full"
+                            className="px-3 py-1 text-xs font-medium text-orange-600 bg-gradient-to-r from-orange-50 to-amber-50 rounded-full border border-orange-100"
                           >
                             {tag}
                           </span>

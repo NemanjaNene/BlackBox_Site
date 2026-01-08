@@ -74,10 +74,13 @@ export default function Services() {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <div className="h-full bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+              <div className="relative h-full bg-gradient-to-br from-white via-blue-50/30 to-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden">
                 
-                {/* Icon */}
-                <div className="text-5xl mb-6">
+                {/* Gradient top border */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-t-2xl" />
+                
+                {/* Icon in colored circle */}
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg shadow-blue-500/20 group-hover:shadow-xl group-hover:shadow-blue-500/30 transition-all duration-300">
                   {service.icon}
                 </div>
                 
@@ -98,7 +101,7 @@ export default function Services() {
                       key={i}
                       className="flex items-center gap-2 text-sm text-gray-700"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
                       {feature}
                     </li>
                   ))}
