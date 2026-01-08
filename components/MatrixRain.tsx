@@ -41,11 +41,11 @@ export default function MatrixRain() {
         // Random character
         const text = code.charAt(Math.floor(Math.random() * code.length))
         
-        // Balanced colors - ~30% reduced
+        // Reduced colors - 15% weaker
         const gradient = ctx.createLinearGradient(0, drops[i] * fontSize, 0, (drops[i] + 1) * fontSize)
-        gradient.addColorStop(0, 'rgba(37, 99, 235, 0.5)')
-        gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.7)')
-        gradient.addColorStop(1, 'rgba(6, 182, 212, 0.8)')
+        gradient.addColorStop(0, 'rgba(37, 99, 235, 0.35)')
+        gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.55)')
+        gradient.addColorStop(1, 'rgba(6, 182, 212, 0.65)')
         
         ctx.fillStyle = gradient
         ctx.fillText(text, i * fontSize, drops[i] * fontSize)
@@ -59,7 +59,7 @@ export default function MatrixRain() {
       }
     }
 
-    const interval = setInterval(draw, 35)
+    const interval = setInterval(draw, 42) // Slower: 35ms -> 42ms (~20% slower)
 
     // Handle resize
     const handleResize = () => {
@@ -91,8 +91,8 @@ export default function MatrixRain() {
       style={{ 
         transform: 'perspective(800px) rotateX(5deg)',
         pointerEvents: 'none',
-        filter: 'brightness(1.1) contrast(1.4) saturate(1.2)',
-        opacity: 0.6
+        filter: 'brightness(1.0) contrast(1.2) saturate(1.0)',
+        opacity: 0.5
       }}
     />
   )
