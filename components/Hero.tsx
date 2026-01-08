@@ -1,39 +1,64 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 import MatrixRain from './MatrixRain'
 
-function Counter({ value }: { value: number }) {
-  const [displayValue, setDisplayValue] = useState(0)
-
-  useEffect(() => {
-    let startTime: number | null = null
-    const duration = 2000
-    const startValue = 0
-
-    const animateCount = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = Math.min((timestamp - startTime) / duration, 1)
-      
-      setDisplayValue(Math.floor(progress * (value - startValue) + startValue))
-      
-      if (progress < 1) {
-        requestAnimationFrame(animateCount)
-      }
-    }
-
-    const timer = setTimeout(() => {
-      requestAnimationFrame(animateCount)
-    }, 1500)
-
-    return () => clearTimeout(timer)
-  }, [value])
-
-  return <>{displayValue}</>
-}
+const processSteps = [
+  { 
+    icon: '📋', 
+    title: 'Plan & Dizajn', 
+    desc: 'Definišemo viziju i kreiramo wireframe',
+    gradient: 'from-blue-500 to-cyan-500',
+    number: '01'
+  },
+  { 
+    icon: '💻', 
+    title: 'Pisanje Koda', 
+    desc: 'Razvijamo sa najnovijim tehnologijama',
+    gradient: 'from-purple-500 to-pink-500',
+    number: '02'
+  },
+  { 
+    icon: '🎨', 
+    title: 'Dodavanje Sadržaja', 
+    desc: 'Integrišemo slike, video i animacije',
+    gradient: 'from-orange-500 to-red-500',
+    number: '03'
+  },
+  { 
+    icon: '🚀', 
+    title: 'SEO Optimizacija', 
+    desc: 'Optimizujemo za pretraživače',
+    gradient: 'from-green-500 to-emerald-500',
+    number: '04'
+  },
+  { 
+    icon: '✅', 
+    title: 'Testiranje', 
+    desc: 'Rigorozno testiranje funkcionalnosti',
+    gradient: 'from-yellow-500 to-orange-500',
+    number: '05'
+  },
+  { 
+    icon: '📦', 
+    title: 'Launch', 
+    desc: 'Deploy i live puštanje projekta',
+    gradient: 'from-indigo-500 to-blue-500',
+    number: '06'
+  },
+]
 
 export default function Hero() {
+  const [currentStep, setCurrentStep] = useState(0)
+
+  const nextStep = () => {
+    setCurrentStep((prev) => (prev + 1) % processSteps.length)
+  }
+
+  const prevStep = () => {
+    setCurrentStep((prev) => (prev - 1 + processSteps.length) % processSteps.length)
+  }
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -117,38 +142,87 @@ export default function Hero() {
             transformišu vaš biznis. Preciznost, kvalitet i inovacija u svakom projektu.
           </motion.p>
 
-          {/* Professional Stats with Animated Numbers */}
+          {/* Process Steps Carousel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-10 max-w-6xl mx-auto mb-8 px-4"
+            className="max-w-4xl mx-auto mb-12 px-4"
           >
-            {[
-              { num: 50, suffix: '+', label: 'Projekata', desc: 'Uspešno realizovano' },
-              { num: 100, suffix: '%', label: 'Klijenti', desc: 'Zadovoljni partneri' },
-              { num: 24, suffix: '/7', label: 'Podrška', desc: 'Uvek dostupni' },
-              { num: 5, suffix: '+', label: 'Godina', desc: 'Iskustva' }
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -8 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5 + i * 0.1, duration: 0.5 }}
-                className="group relative"
+            <div className="relative">
+              {/* Carousel Container */}
+              <div className="overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentStep}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full"
+                  >
+                    <div className={`relative bg-white rounded-3xl p-8 md:p-12 border-2 border-gray-200 shadow-2xl overflow-hidden`}>
+                      
+                      {/* Gradient top border */}
+                      <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${processSteps[currentStep].gradient} rounded-t-3xl`} />
+                      
+                      {/* Number badge */}
+                      <div className={`absolute top-6 right-6 w-14 h-14 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg`}>
+                        {processSteps[currentStep].number}
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                        <div className={`flex-shrink-0 w-24 h-24 bg-gradient-to-br ${processSteps[currentStep].gradient} rounded-3xl flex items-center justify-center text-5xl shadow-xl`}>
+                          {processSteps[currentStep].icon}
+                        </div>
+                        
+                        <div className="flex-1 text-center md:text-left">
+                          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                            {processSteps[currentStep].title}
+                          </h3>
+                          <p className="text-gray-600 text-lg md:text-xl">
+                            {processSteps[currentStep].desc}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Subtle gradient background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${processSteps[currentStep].gradient} opacity-[0.03] rounded-3xl pointer-events-none`} />
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevStep}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 w-12 h-12 bg-white rounded-full shadow-xl border-2 border-gray-200 hover:border-blue-500 hover:shadow-2xl transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-500/20 rounded-2xl blur-2xl group-hover:opacity-100 opacity-60 transition-all duration-300" />
-                <div className="relative p-4 sm:p-6 md:p-10 bg-gradient-to-br from-blue-50/80 via-white to-cyan-50/80 backdrop-blur-md rounded-2xl border-2 border-blue-200 group-hover:border-blue-500 transition-all duration-300 shadow-2xl group-hover:shadow-blue-600/30">
-                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600 text-transparent bg-clip-text mb-2 sm:mb-3">
-                    <Counter value={stat.num} />
-                    {stat.suffix}
-                  </div>
-                  <div className="text-gray-900 font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2">{stat.label}</div>
-                  <div className="text-gray-700 font-medium text-xs sm:text-sm md:text-base">{stat.desc}</div>
-                </div>
-              </motion.div>
-            ))}
+                ←
+              </button>
+              <button
+                onClick={nextStep}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 w-12 h-12 bg-white rounded-full shadow-xl border-2 border-gray-200 hover:border-blue-500 hover:shadow-2xl transition-all flex items-center justify-center text-gray-700 hover:text-blue-600 font-bold text-xl"
+              >
+                →
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center gap-2 mt-6">
+                {processSteps.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentStep(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentStep 
+                        ? 'w-8 bg-gradient-to-r from-blue-600 to-cyan-500' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </motion.div>
 
           {/* Premium CTA Buttons - Centered Below Stats */}

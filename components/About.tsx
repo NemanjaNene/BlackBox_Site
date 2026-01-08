@@ -83,50 +83,6 @@ export default function About() {
     { number: '24', suffix: '/7', label: 'Podrška', color: 'from-purple-600 to-pink-500' },
   ]
 
-  const processSteps = [
-    { 
-      icon: '📋', 
-      title: 'Plan & Dizajn', 
-      desc: 'Definišemo viziju i kreiramo wireframe',
-      gradient: 'from-blue-500 to-cyan-500',
-      number: '01'
-    },
-    { 
-      icon: '💻', 
-      title: 'Pisanje Koda', 
-      desc: 'Razvijamo sa najnovijim tehnologijama',
-      gradient: 'from-purple-500 to-pink-500',
-      number: '02'
-    },
-    { 
-      icon: '🎨', 
-      title: 'Dodavanje Sadržaja', 
-      desc: 'Integrišemo slike, video i animacije',
-      gradient: 'from-orange-500 to-red-500',
-      number: '03'
-    },
-    { 
-      icon: '🚀', 
-      title: 'SEO Optimizacija', 
-      desc: 'Optimizujemo za pretraživače',
-      gradient: 'from-green-500 to-emerald-500',
-      number: '04'
-    },
-    { 
-      icon: '✅', 
-      title: 'Testiranje', 
-      desc: 'Rigorozno testiranje funkcionalnosti',
-      gradient: 'from-yellow-500 to-orange-500',
-      number: '05'
-    },
-    { 
-      icon: '📦', 
-      title: 'Launch', 
-      desc: 'Deploy i live puštanje projekta',
-      gradient: 'from-indigo-500 to-blue-500',
-      number: '06'
-    },
-  ]
 
   return (
     <section id="about" className="pt-20 pb-40 relative overflow-hidden">
@@ -145,85 +101,6 @@ export default function About() {
           ))}
         </motion.div>
 
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Kako Radimo?
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Naš proces od ideje do live projekta
-          </p>
-        </motion.div>
-
-        {/* Stacking Process Cards */}
-        <div className="relative max-w-4xl mx-auto h-[600px] md:h-[500px]">
-          {processSteps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ 
-                opacity: 0, 
-                y: 100,
-                scale: 0.8,
-                rotateX: -20
-              }}
-              whileInView={{ 
-                opacity: 1, 
-                y: index * 60,
-                scale: 1 - (index * 0.05),
-                rotateX: 0
-              }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ 
-                delay: index * 0.15, 
-                duration: 0.6,
-                type: "spring",
-                stiffness: 100
-              }}
-              style={{ 
-                zIndex: processSteps.length - index,
-                transformStyle: 'preserve-3d',
-                perspective: '1000px'
-              }}
-              className="absolute inset-x-0 top-0"
-            >
-              <div className={`relative bg-white rounded-3xl p-8 md:p-10 border-2 border-gray-200 shadow-2xl overflow-hidden`}>
-                
-                {/* Gradient top border */}
-                <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${step.gradient} rounded-t-3xl`} />
-                
-                {/* Number badge */}
-                <div className={`absolute top-6 right-6 w-12 h-12 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg`}>
-                  {step.number}
-                </div>
-                
-                {/* Content */}
-                <div className="flex items-start gap-6">
-                  <div className={`flex-shrink-0 w-20 h-20 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center text-4xl shadow-xl`}>
-                    {step.icon}
-                  </div>
-                  
-                  <div className="flex-1">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 text-lg">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Subtle gradient background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-[0.02] rounded-3xl pointer-events-none`} />
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   )
