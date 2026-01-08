@@ -85,7 +85,7 @@ export default function About() {
 
 
   return (
-    <section id="about" className="pt-20 pb-40 relative overflow-hidden">
+    <section id="about" className="pt-20 pb-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Stats Cards */}
