@@ -18,8 +18,8 @@ export default function Home() {
         {/* Code background wrapper - starts after header */}
         <div className="relative">
           {/* Blurred code lines background */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40">
-            <pre className="text-xs md:text-sm text-gray-400 leading-relaxed font-mono p-8 select-none">
+          <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-100">
+            <pre className="text-sm md:text-base text-gray-500 leading-loose font-mono p-8 select-none">
 {`  function createWebsite() {
     const design = 'modern & responsive';
     const tech = ['React', 'Next.js', 'Tailwind'];
