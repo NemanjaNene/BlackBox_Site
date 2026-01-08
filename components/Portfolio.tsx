@@ -66,7 +66,7 @@ export default function Portfolio() {
     : projects.filter(p => p.category === activeFilter)
 
   return (
-    <section id="portfolio" className="py-40 relative overflow-hidden">
+    <section id="portfolio" className="py-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
